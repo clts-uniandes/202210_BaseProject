@@ -8,8 +8,6 @@ import { CafeListComponent } from './cafe-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CafeService } from '../cafe.service';
 import { Cafe } from '../cafe';
-import { Element } from '@angular/compiler';
-import { elementAt } from 'rxjs';
 
 describe('CafeListComponent', () => {
   let component: CafeListComponent;
