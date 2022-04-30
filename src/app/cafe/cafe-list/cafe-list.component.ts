@@ -10,13 +10,37 @@ import { CafeService } from '../cafe.service';
 export class CafeListComponent implements OnInit {
 
   cafes: Array<Cafe> = [];
+  cantidadCafeOrigen: number = 0;
+  cantidadCafeBlend: number = 0;
 
   constructor(private cafeService: CafeService) { }
 
   getCafes(): void {
     this.cafeService.getCafes().subscribe((cafes) => {
       this.cafes = cafes;
+      this.cantidadCafeOrigen = this.getCafesOrigen(cafes);
+      this.cantidadCafeBlend = this.getCafesBlend(cafes);
     });
+  }
+
+  getCafesOrigen(cafes: Array<Cafe>): number {
+    let totalCafeOrigen: number = 0;
+    for(let i=0; i < cafes.length; i++) {
+      if(cafes[i].tipo=="Café de Origen"){
+        totalCafeOrigen = totalCafeOrigen++;
+      }
+    }
+    return totalCafeOrigen;
+  }
+
+  getCafesBlend(cafes: Array<Cafe>): number {
+    let totalCafeBlend: number = 0;
+    for(let i=0; i < cafes.length; i++) {
+      if(cafes[i].tipo=="Blend"){
+        totalCafeBlend = totalCafeBlend++;
+      }
+    }
+    return totalCafeBlend;
   }
 
   ngOnInit() {
