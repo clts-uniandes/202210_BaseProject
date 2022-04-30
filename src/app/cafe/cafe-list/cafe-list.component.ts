@@ -27,7 +27,7 @@ export class CafeListComponent implements OnInit {
     let totalCafeOrigen: number = 0;
     for(let i=0; i < cafes.length; i++) {
       if(cafes[i].tipo=="Café de Origen"){
-        totalCafeOrigen = totalCafeOrigen++;
+        totalCafeOrigen = totalCafeOrigen + 1;
       }
     }
     return totalCafeOrigen;
@@ -37,9 +37,10 @@ export class CafeListComponent implements OnInit {
     let totalCafeBlend: number = 0;
     for(let i=0; i < cafes.length; i++) {
       if(cafes[i].tipo=="Blend"){
-        totalCafeBlend = totalCafeBlend++;
+        totalCafeBlend = totalCafeBlend + 1;
       }
     }
+    console.log(totalCafeBlend);
     return totalCafeBlend;
   }
 
